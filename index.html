@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Sweeper</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body onload="init();">
+    <h1>Mine Sweeper</h1>
+    <h3>Pavel MineSweeper Game!</h3>
+
+    <div class="info">
+        <button onclick="GameLevel(this)" class="level1">Level 1</button>
+        <button onclick="GameLevel(this)" class="level2">Level 2</button>
+        <button onclick="GameLevel(this)" class="level3">Level 3</button>
+    </div>
+
+    <table class="mainGame"></table>
+
+    <script src="js/utils.js"></script>
+    <script src="js/game.js"></script>
+</body>
+
+</html>

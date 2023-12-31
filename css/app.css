@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(219, 219, 219);
+    text-align: center;
+    color: rgb(43, 43, 43);
+}
+
+table {
+    margin: 0 auto;
+    margin-top: 20px;
+    border-style: groove;
+    height: auto;
+    width: auto;
+}
+
+table td {
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    transition: 0.3s;
+    padding: 2px;
+}
+
+table td:hover {
+    cursor: pointer;
+    background-color: rgb(211, 181, 181);
+}
+
+.hidden {
+    display: none;
+}
