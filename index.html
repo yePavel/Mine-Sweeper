@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 
-<body onload="init();">
+<body onload="init()">
     <h1>Mine Sweeper</h1>
     <h3>Pavel MineSweeper Game!</h3>
 
     <div class="info">
-        <button onclick="GameLevel(this)" class="level1">Level 1</button>
+        <button onclick="restart()" class="restartBtn">🙂</button><br>
+        <div class="lives"><span class="livesNum">1</span> LIVES LEFT</div>
+        <button contextmenu="" onclick="GameLevel(this)" class="level1">Level 1</button>
         <button onclick="GameLevel(this)" class="level2">Level 2</button>
         <button onclick="GameLevel(this)" class="level3">Level 3</button>
     </div>

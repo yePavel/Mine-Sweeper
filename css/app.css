@@ -10,12 +10,17 @@ table {
     border-style: groove;
     height: auto;
     width: auto;
+    border-collapse: collapse;
+    font-size: 100%;
+    font-family: san-serif;
+    font-weight: bold;
+    display: inline-block;
 }
 
 table td {
     border: 1px solid black;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     text-align: center;
     transition: 0.3s;
     padding: 2px;
@@ -26,6 +31,42 @@ table td:hover {
     background-color: rgb(211, 181, 181);
 }
 
+.color {
+    background-color: rgb(153, 153, 153);
+}
+
 .hidden {
     display: none;
+
 }
+
+.restartBtn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.lives {
+    margin-bottom: 10px;
+}
+
+/* .numColor1 {
+    color: blue;
+}
+
+.numColor2 {
+    color: rgb(16, 219, 9);
+}
+
+.numColor3 {
+    color: rgb(255, 0, 0);
+}
+
+.numColor4 {
+    color: rgb(19, 191, 200);
+}
+
+.numColor5 {
+    color: rgb(153, 172, 9);
+} */
