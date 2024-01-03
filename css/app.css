@@ -4,9 +4,22 @@ body {
     color: rgb(43, 43, 43);
 }
 
+h1 {
+    font-size: 60px;
+    /* font-weight: 600; */
+    font-family: 'Niconne', cursive;
+    color: #843ec2;
+    text-shadow: 2px 2px 0px #9373b3,
+        4px 4px 0px #d63312,
+        6px 6px 0px #00c2cb,
+        8px 8px 0px #ff7f50,
+        10px 10px 0px #1bcfcf;
+}
+
+
 table {
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 30px;
     border-style: groove;
     height: auto;
     width: auto;
@@ -18,9 +31,9 @@ table {
 }
 
 table td {
-    border: 1px solid black;
-    width: 30px;
-    height: 30px;
+    border: 1px solid rgb(171, 0, 194);
+    width: 50px;
+    height: 50px;
     text-align: center;
     transition: 0.3s;
     padding: 2px;
@@ -28,7 +41,7 @@ table td {
 
 table td:hover {
     cursor: pointer;
-    background-color: rgb(211, 181, 181);
+    background-color: rgb(192, 137, 137);
 }
 
 .color {
@@ -37,18 +50,38 @@ table td:hover {
 
 .hidden {
     display: none;
+}
+
+button {
+    margin-bottom: 5px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    will-change: box-shadow, transform;
+    background: radial-gradient(100% 100% at 100% 0%, #89E5FF 0%, #be62ca 100%);
+    padding: 0 32px;
+    border-radius: 6px;
+    color: #fff;
+    height: 40px;
+    font-size: 20px;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
 
 }
 
-.restartBtn {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 30px;
-    height: 30px;
-}
 
 .lives {
     margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 30px;
+    font-family: 'Niconne', cursive;
+    color: #d84925;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+
 }
 
 /* .numColor1 {

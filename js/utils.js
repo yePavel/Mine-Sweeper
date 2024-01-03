@@ -5,12 +5,12 @@ function getRandomInt(min, max) {
 }
 
 function getEmptyCells(board) {
-    var cells = []
+    const emptyCells = []
     for (var i = 0; i < board.length; i++) {
         for (var j = 0; j < board[i].length; j++) {
-            if (!board[i][j].isMine) cells.push({ i, j })
+            if (!board[i][j].isMine) emptyCells.push({ i, j })
         }
     }
-    return cells
+    return emptyCells
 }
 
