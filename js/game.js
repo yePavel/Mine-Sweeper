@@ -33,6 +33,7 @@ function init() {
     gBoard = buildBoard()
     renderBoard(gBoard)
     console.log('gBoard:', gBoard)
+    changeNumColor()
 }
 
 
@@ -59,41 +60,11 @@ function buildBoard() {
     for (var i = 0; i < board.length; i++) {
         for (j = 0; j < board[i].length; j++) {
             board[i][j].minesAroundCount = setMinesNegsCount(board, i, j)
-            // numColor(i, j, board[i][j].minesAroundCount)
         }
     }
     return board
 }
 
-// function numColor(i, j, countNum) {
-//     console.log('i,j:', i, j)
-//     const newCell = document.querySelector(`.cell${i}${j}`)
-//     console.log('cell:', newCell)
-//     const cellContent = newCell.document.querySelector('div')
-//     console.log('countNum:', countNum)
-//     switch (countNum) {
-//         case '1':
-//             cellContent.classList.add('.numColor1')
-//             break;
-
-//         case '2':
-//             cellContent.classList.add('.numColor2')
-//             break;
-
-//         case '3':
-//             cellContent.classList.add('.numColor3')
-//             break;
-
-//         case '4':
-//             cellContent.classList.add('.numColor4')
-//             break;
-//         case '5':
-//             cellContent.classList.add('.numColor5')
-//             break;
-//         default: return null
-//     }
-
-// }
 
 function addMines(board) {
     for (var i = 0; i < gLevel.mines; i++) {
@@ -119,7 +90,7 @@ function renderBoard(board) {
             const currCell = board[i][j]
             strHTML += `<td oncontextmenu="onCellMarked(this, ${i}, ${j})" 
             onclick="onCellClicked(this, ${i},${j}, event)"
-            class="cell cell${i}${j}">
+            class="cell${i}${j} cell">
             <div class="cellContent hidden">`
             if (currCell.isMine)
                 strHTML += minePic
@@ -181,7 +152,6 @@ function setMinesNegsCount(board, row, col) {
 
 function onCellClicked(elCell, i, j) {
     if (gBoard[i][j].isShown || gBoard[i][j].isMarked) return
-
     elCell.classList.add('color')
     gBoard[i][j].isShown = true
     gGame.shownCount++
@@ -199,12 +169,38 @@ function onHintClick(elBtn) {
     elBtn.classList.add('hidden')
 }
 
+// function expandShown(board, i, j) {
+//     if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) {
+//         return;
+//     }
+//     console.log(':', board[i][j].isMine, board[i][j].isShown, board[i][j].isMarked)
+//     if (board[i][j].isMine || board[i][j].isShown || board[i][j].isMarked) {
+//         return;
+//     }
+
+//     board[i][j].isShown = true;
+//     gGame.shownCount++;
+
+//     const newCell = document.querySelector(`.cell${i}${j}`);
+//     newCell.classList.add('color');
+//     const elContent = newCell.querySelector('div');
+//     elContent.classList.remove('hidden');
+
+//     checkGameOver(i, j);
+
+//     for (let x = i - 1; x <= i + 1; x++) {
+//         for (let y = j - 1; y <= j + 1; y++) {
+//             expandShown(board, x, y);
+//         }
+//     }
+// }
+
+
 function expandShown(board, row, col) {
     for (var i = row - 1; i <= row + 1; i++) {
         if (i < 0 || i >= board.length) continue
 
         for (var j = col - 1; j <= col + 1; j++) {
-            console.log('i,j:', i, j)
             if (j < 0 || j >= board[0].length) continue
             if (board[i][j].isMine || board[i][j].isShown || board[i][j].isMarked) continue
             if (i === row && j === col) continue
@@ -220,25 +216,15 @@ function expandShown(board, row, col) {
         }
     }
     hintShowCells(board, row, col)
-    // expandShown(board, row - 1, col - 1)
-    // expandShown(board, row - 1, col)
-    // expandShown(board, row - 1, col + 1)
-    // expandShown(board, row, col - 1)
-    // expandShown(board, row, col + 1)
-    // expandShown(board, row + 1, col - 1)
-    // expandShown(board, row + 1, col)
-    // expandShown(board, row + 1, col + 1)
-
 }
 
 function hintShowCells(board, row, col) {
-    console.log('gGame.hintFlag:', gGame.hintFlag)
     if (gGame.hintFlag) {
         setTimeout(() => {
             for (var i = row - 1; i <= row + 1; i++) {
                 if (i < 0 || i >= board.length) continue
                 for (var j = col - 1; j <= col + 1; j++) {
-                    if (j < 0 || j >= board[0].length) continue
+                    if (j < 0 || j >= board[0].length || board[i][j].isMine) continue
                     if (i === row && j === col) continue
                     else if (board[i][j].isShown) {
                         board[i][j].isShown = false
@@ -250,7 +236,7 @@ function hintShowCells(board, row, col) {
                     }
                 }
             }
-        }, 1000);
+        }, 500);
         gGame.hintFlag = false
     }
 }
@@ -310,7 +296,50 @@ function checkGameOver(i, j) {
     }
 }
 
+function changeNumColor() {
+    for (var i = 0; i < gBoard.length; i++) {
+        for (var j = 0; j < gBoard[0].length; j++) {
+            const number = gBoard[i][j].minesAroundCount
+            const elCell = document.querySelector(`.cell${i}${j}`)
+            const elContent = elCell.querySelector('div')
+            elContent.style.color = assignColor(number)
+        }
+    }
+}
 
+function assignColor(number) {
+    switch (number) {
+        case 1:
+            return 'blue';
+        case 2:
+            return 'green';
+        case 3:
+            return 'red';
+        case 4:
+            return 'purple';
+        case 5:
+            return 'maroon';
+        case 6:
+            return 'turquoise';
+        case 7:
+            return 'black';
+        case 8:
+            return 'gray';
+        default:
+            return 'defaultColor';
+    }
+}
+
+//start of MEGA-HINT
+// function megaHint(elCell, rowClick1, colClick1, rowClick2, colClick2) {
+//     for (var i = rowClick1; i < rowClick2; rowClick1++) {
+//         for (var j = colClick1; j < colClick2.length; j++) {
+//             const elCell = document.querySelector(`.cell${i}${j}`)
+//             const elContent = elCell.querySelector('div')
+//             elContent.classList.remove('hidden')
+//         }
+//     }
+// }
 
 function restart() {
     location.reload();
