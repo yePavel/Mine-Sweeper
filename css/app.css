@@ -2,19 +2,25 @@ body {
     background-color: rgb(187, 187, 187);
     text-align: center;
     color: rgb(43, 43, 43);
+    background-image: url('/pictures/background.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
     font-size: 60px;
-    /* font-weight: 600; */
     font-family: 'Niconne', cursive;
-    color: #8b4fc0;
-    text-shadow: 2px 2px 0px #9373b3,
+    color: #025346;
+    text-shadow: 2px 2px 0px #49d186,
         4px 4px 0px #d63312,
         6px 6px 0px #00c2cb,
         8px 8px 0px #ff7f50,
         10px 10px 0px #1bcfcf;
+    letter-spacing: 5px;
 }
+
 
 
 table {
@@ -31,12 +37,14 @@ table {
 }
 
 table td {
-    border: 1px solid rgb(171, 0, 194);
+    border: 1px solid rgb(87, 0, 61);
     width: 30px;
     height: 30px;
     text-align: center;
     transition: 0.3s;
     padding: 2px;
+    background-color: #ffffff;
+
 }
 
 table td:hover {
@@ -45,7 +53,7 @@ table td:hover {
 }
 
 .color {
-    background-color: rgb(153, 153, 153);
+    background-color: rgb(151, 149, 149);
 }
 
 .hidden {
@@ -55,28 +63,26 @@ table td:hover {
 
 button {
     margin-bottom: 5px;
-    display: inline-block;
-    outline: 0;
+    /* display: inline-block; */
+    /* outline: 0; */
     border: 0;
     cursor: pointer;
-    will-change: box-shadow, transform;
-    background: radial-gradient(100% 100% at 100% 0%, #89E5FF 0%, #be62ca 100%);
+    background: radial-gradient(100% 100% at 100% 0%, #8edb6a 0%, #1d91a5 100%);
     padding: 0 32px;
     border-radius: 6px;
-    color: #fff;
-    height: 40px;
-    font-size: 20px;
+    color: #000000;
+    height: 30px;
+    font-size: 1em;
     text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
-
 }
 
 
-.lives {
+.text {
     margin-bottom: 10px;
     margin-top: 10px;
     font-size: 30px;
     font-family: 'Niconne', cursive;
-    color: #d84925;
+    color: #bd6048;
 }
 
 img {
@@ -85,22 +91,10 @@ img {
 
 }
 
-/* .numColor1 {
-    color: blue;
+.hint {
+    background-color: #42c76f;
 }
 
-.numColor2 {
-    color: rgb(16, 219, 9);
+.safeClick {
+    background-color: #8edb6a;
 }
-
-.numColor3 {
-    color: rgb(255, 0, 0);
-}
-
-.numColor4 {
-    color: rgb(19, 191, 200);
-}
-
-.numColor5 {
-    color: rgb(153, 172, 9);
-} */

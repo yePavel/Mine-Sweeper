@@ -9,21 +9,25 @@
 </head>
 
 <body onload="init()">
-    <h1>Mine Sweeper</h1>
-
+    <h1>Mine Sweeper💣</h1>
     <div class="info">
-        <button onclick="restart()" class="restartBtn">🙂</button><br>
-        <button onclick="onHintClick(this)" class="hint"><img src="/pictures/lightHINT.png"></button>
-        <button onclick="onHintClick(this)" class="hint"><img src="/pictures/lightHINT.png"></button>
-        <button onclick="onHintClick(this)" class="hint"><img src="/pictures/lightHINT.png"></button><br>
+        <div class="text">time: <span class="time">0</span></div>
+        <div>
+            <img onclick="onHintClick(this)" src="/pictures/lightHINT.png">
+            <img onclick="onHintClick(this)" src="/pictures/lightHINT.png">
+            <img onclick="onHintClick(this)" src="/pictures/lightHINT.png">
+        </div>
         <button onclick="onMegaHint(this)" class="megaHint">Mega Hint!🪄</button>
-        <div class="lives"><span class="livesNum">1</span> LIVES LEFT</div>
-        <button contextmenu="" onclick="GameLevel(this)" class="level1">Level 1</button>
-        <button onclick="GameLevel(this)" class="level2">Level 2</button>
-        <button onclick="GameLevel(this)" class="level3">Level 3</button>
+        <button onclick="safeClick(this)"><span class="safeClicks">3 </span>Safe clicks available</button><br>
+        <div class="text">LIVES LEFT: <span class="livesNum">1</span></div>
+        <button contextmenu="" onclick="GameLevel(1)" class="level1">Level 1</button>
+        <button onclick="GameLevel(2)" class="level2">Level 2</button>
+        <button onclick="GameLevel(3)" class="level3">Level 3</button><br>
+
+        <button onclick="restart()" class="restartBtn">🙂</button>
     </div>
 
-    <table class="mainGame"></table>
+    <table class="mainGame" oncontextmenu="event.preventDefault()"></table>
 
     <script src="js/utils.js"></script>
     <script src="js/game.js"></script>
