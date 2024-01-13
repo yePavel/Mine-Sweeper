@@ -1,12 +1,15 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
-    background-color: rgb(187, 187, 187);
     text-align: center;
-    color: rgb(43, 43, 43);
-    background-image: url('/pictures/background.jpg');
+    background-image: url('/pictures/background.jpeg');
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+
 }
 
 h1 {
@@ -21,7 +24,70 @@ h1 {
     letter-spacing: 5px;
 }
 
+.bubbles img {
+    width: 40px;
+    animation: bubble 7s linear infinite;
 
+}
+
+.bubbles {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    40% {
+
+        opacity: 1;
+    }
+
+    70% {
+
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-80vh);
+        opacity: 0;
+    }
+}
+
+.bubbles img:nth-child(1) {
+    animation-duration: 2s;
+}
+
+.bubbles img:nth-child(2) {
+    animation-duration: 2.2s;
+}
+
+.bubbles img:nth-child(3) {
+    animation-duration: 1.8s;
+}
+
+.bubbles img:nth-child(4) {
+    animation-duration: 3s;
+}
+
+.bubbles img:nth-child(5) {
+    animation-duration: 1.9s;
+}
+
+.bubbles img:nth-child(6) {
+    animation-duration: 1.2s;
+}
+
+.bubbles img:nth-child(7) {
+    animation-duration: 4s;
+}
 
 table {
     margin: 0 auto;
@@ -54,6 +120,7 @@ table td:hover {
 
 .color {
     background-color: rgb(151, 149, 149);
+
 }
 
 .hidden {
@@ -82,7 +149,7 @@ button {
     margin-top: 10px;
     font-size: 30px;
     font-family: 'Niconne', cursive;
-    color: #bd6048;
+    color: #e7e7e7;
 }
 
 img {
